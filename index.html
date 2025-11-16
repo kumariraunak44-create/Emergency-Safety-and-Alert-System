@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women Safety App</title>
+
+    <style>
+        /* -----------------------------------
+           🟣 Animated Technical Background
+        ------------------------------------*/
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #0f0f1f, #1a0033, #330033);
+            background-size: 300% 300%;
+            animation: bgMove 12s ease-in-out infinite;
+        }
+
+        @keyframes bgMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating Tech Circles */
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 51, 102, 0.15);
+            animation: float 10s infinite ease-in-out;
+            filter: blur(4px);
+        }
+
+        .circle:nth-child(1) { width: 180px; height: 180px; top: 10%; left: 10%; animation-duration: 12s; }
+        .circle:nth-child(2) { width: 250px; height: 250px; bottom: 15%; right: 12%; animation-duration: 15s; }
+        .circle:nth-child(3) { width: 120px; height: 120px; top: 60%; left: 30%; animation-duration: 10s; }
+
+        @keyframes float {
+            0% { transform: translateY(0px) translateX(0px); }
+            50% { transform: translateY(-40px) translateX(40px); }
+            100% { transform: translateY(0px) translateX(0px); }
+        }
+
+        /* -----------------------------------
+           🟣 Header Animation
+        ------------------------------------*/
+        header {
+            text-align: center;
+            padding: 25px;
+            margin-top: 10px;
+            color: white;
+            animation: slideDown 1s ease-out;
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-40px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        header h1 {
+            font-size: 28px;
+            text-shadow: 0 0 15px rgba(255, 51, 102, 0.8);
+        }
+
+        header p {
+            font-size: 18px;
+            opacity: 0.8;
+        }
+
+        /* -----------------------------------
+           🟣 Button Container (Glass Effect)
+        ------------------------------------*/
+        .container {
+            width: 90%;
+            max-width: 500px;
+            margin: 25px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 15px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 0 25px rgba(255, 51, 102, 0.2);
+            animation: fadeIn 1.4s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        /* -----------------------------------
+           🟣 Buttons With 3D Hover
+        ------------------------------------*/
+        button {
+            padding: 16px;
+            font-size: 18px;
+            width: 100%;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.25s;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #ffffff20, #ffffff05);
+            color: white;
+            backdrop-filter: blur(8px);
+        }
+
+        button:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0px 6px 20px rgba(255, 51, 102, 0.5);
+        }
+
+        /* -----------------------------------
+           🟣 Neon SOS Button with Pulse
+        ------------------------------------*/
+        .sos {
+            background: #ff0033;
+            font-weight: bold;
+            animation: neonPulse 1.4s infinite;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes neonPulse {
+            0% { box-shadow: 0 0 10px #ff0033; }
+            50% { box-shadow: 0 0 25px #ff0033; }
+            100% { box-shadow: 0 0 10px #ff0033; }
+        }
+
+        /* -----------------------------------
+           🟣 Links Animation
+        ------------------------------------*/
+        a {
+            display: block;
+            text-align: center;
+            font-size: 18px;
+            margin-top: 12px;
+            text-decoration: none;
+            color: #66b3ff;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            transform: scale(1.1);
+            color: #99ccff;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Floating Background Shapes -->
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+
+    <header>
+        <h1>Emergency Safety & Alert System</h1>
+        <p>Your safety is our priority</p>
+    </header>
+
+    <div class="container">
+
+        <button class="sos" onclick="sendSOS()">🚨 Emergency SOS</button>
+       
+        <button onclick="shareLocation()">📍 Instant Location Sharing</button>
+
+        <button onclick="complaintBox()">📝 Anonymous Complaint Box</button>
+        <button onclick="alertbroadcasting()"> Alert broadcasting</button>
+        <button onclick="Emergencycontactsystem()"> Emergency contact system</button>
+
+        <a href="./guideline.html">📘 Go to Guidelines</a>
+        
+    </div>
+
+    <script src="script.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script>
+
+</body>
+<!-- Firebase Libraries -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
+
+<!-- Your Own JS File -->
+<script src="app.js"></script>
+</body>
+<button id="sosBtn" class="sos-btn">SOS</button>
+<style>
+.sos-btn {
+  background: red;
+  color: white;
+  font-size: 30px;
+  padding: 20px 40px;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 0 20px rgba(255,0,0,0.7);
+}
+
+.sos-btn:active {
+  transform: scale(0.95);
+}
+</style>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js"></script>
+
+<script src="app.js"></script>
+</html>
